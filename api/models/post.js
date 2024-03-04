@@ -7,7 +7,8 @@ const PostSchema = new mongoose.Schema({
   message: String,
   createdAt: Date,
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  imgStr: String
+  imgStr: String,
+  likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 
 // We use the Schema to create the Post model. Models are classes which we can

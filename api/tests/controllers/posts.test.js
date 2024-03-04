@@ -26,7 +26,7 @@ let token;
 let userId;
 
 describe("/posts", () => {
-  beforeAll(async () => {
+  beforeEach(async () => {
     const user = new User({
       email: "post-test@test.com",
       password: "12345678",
@@ -59,6 +59,7 @@ describe("/posts", () => {
         .send({ message: "Hello World!!" });
 
       const posts = await Post.find();
+      console.log(posts)
       expect(posts.length).toEqual(1);
       expect(posts[0].message).toEqual("Hello World!!");
     });
