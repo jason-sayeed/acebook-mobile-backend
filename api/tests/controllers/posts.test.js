@@ -113,11 +113,13 @@ describe("/posts", () => {
         message: "howdy!",
         createdAt: Date.now(),
         createdBy: userId,
+        likes: []
       });
       const post2 = new Post({
         message: "howdy!",
         createdAt: Date.now(),
         createdBy: userId,
+        likes: []
       });
 
       await post1.save();
@@ -131,16 +133,20 @@ describe("/posts", () => {
     });
 
     test("returns every post in the collection", async () => {
+      const date = Date.now();
+
       const post1 = new Post({
-         message: "howdy!",
-         createdAt: Date.now(),
-         createdBy: userId,
+        message: "howdy!",
+        createdAt: date,
+        createdBy: userId,
+        likes: [],
       });
 
       const post2 = new Post({
-         message: "hola!",
-         createdAt: Date.now(),
-         createdBy: userId,
+        message: "hola!",
+        createdAt:date,
+        createdBy: userId,
+        likes: [],
       });
       
       await post1.save();
@@ -155,7 +161,12 @@ describe("/posts", () => {
       const secondPost = posts[1];
 
       expect(firstPost.message).toEqual("howdy!");
+      expect(new Date(firstPost.createdAt).toString()).toBe((new Date(date).toString()));
+      expect(firstPost.createdBy.username).toEqual("test-user");
+
       expect(secondPost.message).toEqual("hola!");
+      expect(new Date(firstPost.createdAt).toString()).toBe(new Date(date).toString());
+      expect(secondPost.createdBy.username).toEqual("test-user");
     });
 
     test("returns a new token", async () => {
@@ -246,4 +257,63 @@ describe("/posts", () => {
       expect(response.body.token).toEqual(undefined);
     });
   });
+
+  describe("PUT, when token is present", () => { 
+    test("Adds the user_id to the likes array when a user that hasn't liked the post yet has sent the request", async () => {
+      const post1 = new Post({
+        message: "howdy!",
+        createdAt: Date.now(),
+        createdBy: userId,
+        likes: []
+      });
+
+      await post1.save();
+
+      const response = await request(app)
+        .put("/posts")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ postId: post1.id })
+      
+      expect(response.body.post.likes).toEqual([userId]);
+      expect(response.body.post._id).toEqual(post1.id);
+    });
+
+    test("Removes the user_id from the likes array when a user that has already liked the post yet has sent the request", async () => {
+      const post1 = new Post({
+        message: "howdy!",
+        createdAt: Date.now(),
+        createdBy: userId,
+        likes: [userId],
+      });
+
+      await post1.save();
+
+      const response = await request(app)
+        .put("/posts")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ postId: post1.id });
+      
+      const updatedPost = await Post.find({ _id: post1.id });
+
+      expect(response.body.post.likes).toEqual([]);
+      expect(response.body.post._id).toEqual(post1.id);
+      expect(updatedPost[0].likes).toEqual([])
+    });
+
+    test("Returns an error when the post the user is trying to like doesn't exist", async () => {
+      const id = "this is a wrong id";
+
+      const response = await request(app)
+        .put("/posts")
+        .set("Authorization", `Bearer ${token}`)
+        .send({ postId: id });
+
+      console.log(response.body);
+
+      expect(response.status).toEqual(400);
+      expect(response.body.message).toEqual('Something went wrong - try again');
+    });
+
+
+  })
 });
