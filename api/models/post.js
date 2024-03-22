@@ -7,7 +7,7 @@ const PostSchema = new mongoose.Schema({
   message: String,
   createdAt: Date,
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  imgStr: String,
+  imgString: String,
   likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 });
 

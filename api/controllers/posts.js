@@ -1,5 +1,7 @@
 const Post = require("../models/post");
 const { generateToken } = require("../lib/token");
+const { dataUri } = require("../middleware/multer");
+const { uploader } = require("../config/cloudinaryConfig");
 
 const getAllPosts = async (req, res) => {
   //Get all posts and populate the createdBy field with user data
@@ -35,16 +37,27 @@ const createPost = async (req, res) => {
       message: req.body.message,
       createdAt: Date.now(),
       createdBy: req.user_id,
+      imgString: null
     };
 
+    if (req.file) {
+      const file = dataUri(req).content;
+      const result = await uploader.upload(file);
+
+      postContent.imgString = result.url;
+
+    } 
+      
     const post = new Post(postContent);
+    console.log(post);
+
     post.save();
 
     const newToken = generateToken(req.user_id);
     res.status(201).json({ message: "OK", token: newToken });
 
   } catch (error) { 
-    // console.error(error)
+    console.log(error)
     res.status(400).json({ message: "Something went wrong - try again" });
   }
 };
