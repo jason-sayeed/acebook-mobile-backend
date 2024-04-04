@@ -3,9 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const usersRouter = require("./routes/users");
-const { cloudinaryConfig } = require("./config/cloudinaryConfig");
 const postsRouter = require("./routes/posts");
 const authenticationRouter = require("./routes/authentication");
+const commentsRouter = require("./routes/comments");
 const tokenChecker = require("./middleware/tokenChecker");
 
 
@@ -15,7 +15,6 @@ const app = express();
 // docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 // docs: https://expressjs.com/en/resources/middleware/cors.html
 app.use(cors());
-app.use("*", cloudinaryConfig);
 
 // Parse JSON request bodies, made available on `req.body`
 app.use(bodyParser.json());
@@ -23,6 +22,7 @@ app.use(bodyParser.json());
 // API Routes
 app.use("/users", usersRouter);
 app.use("/posts", tokenChecker, postsRouter);
+app.use("/comments", tokenChecker, commentsRouter);
 app.use("/tokens", authenticationRouter);
 
 // 404 Handler

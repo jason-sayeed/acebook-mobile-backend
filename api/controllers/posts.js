@@ -25,7 +25,7 @@ const getAllPosts = async (req, res) => {
     const token = generateToken(req.user_id);
     res.status(200).json({ posts: updatedPosts, token: token });
   } catch (error) { 
-    // console.error(error);
+    // console.log(error);
     res.status(400).json({ message: "Something went wrong - try again" });
   }
 };
