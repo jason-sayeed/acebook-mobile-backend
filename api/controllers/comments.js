@@ -5,12 +5,15 @@ const getCommentsByPost = async (req, res) => {
     try {
         const postId = req.params.postId;
 
+        //.populate pulls all the data from the user database, since createdBy references the Users collection
         const comments = await Comment.find({ underPost: postId }).populate(
           "createdBy"
         );
 
         const responseComments = [];
 
+        /*we don't need all of the user data, so here we create a custom comment object to send back to the front-end,
+           omitting any sensitive data such as the passwords from the users for instance */
         comments.forEach((comment) => {
           let updatedComment = {
             _id: comment._id,

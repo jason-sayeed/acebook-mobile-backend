@@ -2,8 +2,9 @@ const Post = require("../models/post");
 const { generateToken } = require("../lib/token");
 
 const getAllPosts = async (req, res) => {
-  //Get all posts and populate the createdBy field with user data
+ 
   try {
+    //Get all posts and populate the createdBy field with user data
     const posts = await Post.find().populate("createdBy");
 
     const updatedPosts = [];
@@ -16,7 +17,10 @@ const getAllPosts = async (req, res) => {
         message: post.message,
         createdAt: post.createdAt,
         imgUrl: post.imgUrl,
-        createdBy: { _id: post.createdBy._id, username: post.createdBy.username },
+        createdBy: {
+          _id: post.createdBy._id,
+          username: post.createdBy.username,
+        },
       };
 
       updatedPosts.push(newPost);
