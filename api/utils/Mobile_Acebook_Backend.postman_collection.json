@@ -1,93 +1,605 @@
 {
-  "info": {
-    "name": "Mobile Acebook Backend",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Sign up a new user",
-      "request": {
-        "method": "POST",
-        "url": "localhost:3000/users",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{ \"email\": \"example@email.com\", \"password\": \"examplepassword\" }"
-        }
-      }
+  "collection": {
+    "info": {
+      "_postman_id": "07e0bfdb-083e-4ddc-b292-0cdc8a4e2dbf",
+      "name": "Acebook-mobile-backend-tests",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2024-04-04T13:42:37.000Z",
+      "uid": "25274463-07e0bfdb-083e-4ddc-b292-0cdc8a4e2dbf",
+      "createdAt": null,
+      "lastUpdatedBy": null
     },
-    {
-      "name": "Log in an existing user",
-      "request": {
-        "method": "POST",
-        "url": "localhost:3000/users",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{ \"email\": \"example@email.com\", \"password\": \"examplepassword\" }"
-        }
-      }
-    },
-    {
-      "name": "Create a new post",
-      "request": {
-        "method": "POST",
-        "url": "localhost:3000/posts",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer example_token"
+    "item": [
+      {
+        "name": "create a new post without an image",
+        "id": "4a5283dd-5213-4880-b932-c9a709009bd1",
+        "protocolProfileBehavior": {
+          "disabledSystemHeaders": {
+
           },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"message\": \"This is my first post\"}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/posts",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "posts"
+            ]
           }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{ \"message\": \"This is the message for a new post\", }"
-        }
-      }
-    },
-    {
-      "name": "Fetch all posts",
-      "request": {
-        "method": "GET",
-        "url": "localhost:3000/posts",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer example_token"
+        },
+        "response": [],
+        "uid": "25274463-4a5283dd-5213-4880-b932-c9a709009bd1"
+      },
+      {
+        "name": "get all the posts",
+        "id": "00866864-6f66-406f-8a22-cf3e9595c327",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "localhost:3000/posts",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "posts"
+            ]
           }
-        ]
-      }
-    },
-    {
-      "name": "Like/Unlike a post",
-      "request": {
-        "method": "PUT",
-        "url": "localhost:3000/posts",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "Bearer example_token"
+        },
+        "response": [],
+        "uid": "25274463-00866864-6f66-406f-8a22-cf3e9595c327"
+      },
+      {
+        "name": "like and unlike a post",
+        "id": "d69b1332-7b69-4445-8fbe-31a0fc4c642b",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "PUT",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"postId\": \"EXISTING POSTID3\"}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/posts",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "posts"
+            ]
           }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{ \"postId\": \"examplePostId\" }"
-        }
+        },
+        "response": [],
+        "uid": "25274463-d69b1332-7b69-4445-8fbe-31a0fc4c642b"
+      },
+      {
+        "name": "create new user with custom image",
+        "id": "7f055c0f-d1b8-4f3c-bb66-333ec9b9c5e4",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"imgUrl\": \"placeholder\" , \"email\": \"test_user@email.com\", \"password\": \"password\", \"username\": \"test_user\" }\n",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/users",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-7f055c0f-d1b8-4f3c-bb66-333ec9b9c5e4"
+      },
+      {
+        "name": "update user's image",
+        "id": "1b30321b-cf46-41a2-8e70-bbc4505dbd04",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "PUT",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"imgUrl\": \"updated image string\"}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/users",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-1b30321b-cf46-41a2-8e70-bbc4505dbd04"
+      },
+      {
+        "name": "create new user with default image",
+        "id": "89e48ccb-2290-4aa7-b23a-7b7f4e0aff9c",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"email\": \"test_user@email.com\", \"password\": \"password\", \"username\": \"test_user\" }",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/users",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-89e48ccb-2290-4aa7-b23a-7b7f4e0aff9c"
+      },
+      {
+        "name": "create a new post with a custom image",
+        "id": "e99510bc-e62a-4e59-a76d-42beae4dd6ef",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"message\": \"This is my first post\", \"imgUrl\": \"placeholder img url\" }\n\n// In order for this to work, you will need to change the user id to an existing user in your database\n// You can do this in the Authorization tab, and in the \"payload\" section\n// Follow the format {user_id: \"your user id string\"}\n// It might work without an updated user, but then this post won't be linked to a user in the database and might cause you headache if you're using postman to seed your data",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/posts",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "posts"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-e99510bc-e62a-4e59-a76d-42beae4dd6ef"
+      },
+      {
+        "name": "create new comment under a post",
+        "id": "aabb6b15-d3e1-4052-8cd9-5fc56943175c",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "raw",
+            "raw": "{\"message\": \"This is a comment\"}",
+            "options": {
+              "raw": {
+                "language": "json"
+              }
+            }
+          },
+          "url": {
+            "raw": "localhost:3000/comments/EXISTING_POST_ID",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "comments",
+              "EXISTING_POST_ID"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-aabb6b15-d3e1-4052-8cd9-5fc56943175c"
+      },
+      {
+        "name": "get posts for a single comment",
+        "id": "57304bfd-af2d-4d20-b146-9cd7755f1d64",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "auth": {
+            "type": "jwt",
+            "jwt": [
+              {
+                "key": "payload",
+                "value": "{\"user_id\": \"EXISTING USERID\"}",
+                "type": "string"
+              },
+              {
+                "key": "secret",
+                "value": "test_secret",
+                "type": "string"
+              },
+              {
+                "key": "algorithm",
+                "value": "HS256",
+                "type": "string"
+              },
+              {
+                "key": "isSecretBase64Encoded",
+                "value": false,
+                "type": "boolean"
+              },
+              {
+                "key": "addTokenTo",
+                "value": "header",
+                "type": "string"
+              },
+              {
+                "key": "headerPrefix",
+                "value": "Bearer",
+                "type": "string"
+              },
+              {
+                "key": "queryParamKey",
+                "value": "token",
+                "type": "string"
+              },
+              {
+                "key": "header",
+                "value": "{}",
+                "type": "string"
+              }
+            ]
+          },
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "localhost:3000/comments/EXISTING_POST_ID",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "comments",
+              "EXISTING_POST_ID"
+            ]
+          }
+        },
+        "response": [],
+        "uid": "25274463-57304bfd-af2d-4d20-b146-9cd7755f1d64"
       }
-    }
-  ]
+    ]
+  }
 }
