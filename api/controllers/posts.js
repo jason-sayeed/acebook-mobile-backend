@@ -1,7 +1,5 @@
 const Post = require("../models/post");
 const { generateToken } = require("../lib/token");
-const { dataUri } = require("../middleware/multer");
-const { uploader } = require("../config/cloudinaryConfig");
 
 const getAllPosts = async (req, res) => {
   //Get all posts and populate the createdBy field with user data
@@ -17,6 +15,7 @@ const getAllPosts = async (req, res) => {
         _id: post._id,
         message: post.message,
         createdAt: post.createdAt,
+        imgUrl: post.imgUrl,
         createdBy: { _id: post.createdBy._id, username: post.createdBy.username },
       };
 
@@ -37,24 +36,18 @@ const createPost = async (req, res) => {
       message: req.body.message,
       createdAt: Date.now(),
       createdBy: req.user_id,
-      imgString: null
+      imgUrl: req.body.imgUrl
+        ? req.body.imgUrl
+        : null,
     };
 
-    if (req.file) {
-      const file = dataUri(req).content;
-      const result = await uploader.upload(file);
-
-      postContent.imgString = result.url;
-
-    } 
-      
     const post = new Post(postContent);
     console.log(post);
 
     post.save();
 
     const newToken = generateToken(req.user_id);
-    res.status(201).json({ message: "OK", token: newToken });
+    res.status(201).json({ message: "Post created", token: newToken });
 
   } catch (error) { 
     console.log(error)
@@ -87,8 +80,10 @@ const updateLikes = async (req, res) => {
 
       await Post.findOneAndUpdate({ _id: postId }, post[0]);
       const updatedPost = await Post.find({ _id: postId });
+      console.log(updatedPost);
 
       const token = generateToken(userId);
+
       res.status(201).json({
         post: updatedPost[0],
         token: token,
@@ -99,8 +94,10 @@ const updateLikes = async (req, res) => {
 
       await Post.findOneAndUpdate({ _id: postId }, post[0]);
       const updatedPost = await Post.find({ _id: postId });
+      console.log(updatedPost);
 
       const token = generateToken(userId);
+
       res
         .status(201)
         .json({
@@ -110,7 +107,7 @@ const updateLikes = async (req, res) => {
         });
     }
   } catch (error) { 
-    // console.error(error);
+    // console.log(error);
     res.status(400).json({ message: "Something went wrong - try again" });
   }
 };
