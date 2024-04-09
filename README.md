@@ -24,7 +24,7 @@ JWT_SECRET="secret"
 
 ### How to run the server and use the app
 
-1. Start the server application (in the `api` directory) in dev mode:
+Start the server application (in the `api` directory) in dev mode:
 
 ```
 ; cd api
