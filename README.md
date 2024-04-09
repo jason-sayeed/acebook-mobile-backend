@@ -32,7 +32,7 @@ Start the server application (in the `api` directory) in dev mode:
 ```
 
 
-In order to figure out how to use this back-end, refer to the *Mobile_Acebook_Backend.postman_collection.json* file - **all the details for the endpoints are contained there**, so that you can **structure your requests to this back-end from your mobile application**. You can **import this collection to your own postman workspace** in order to test the endpoints and figure out how to write the requests. 
+In order to figure out how to use this back-end, refer to the *Mobile_Acebook_Backend.postman_collection.json* file in the utils folder - **all the details for the endpoints are contained there**, so that you can **structure your requests to this back-end from your mobile application**. You can **import this collection to your own postman workspace** in order to test the endpoints and figure out how to write the requests. 
 
 **You will have to replace some of the data in the Authorization tab and in some of the urls to make the most of the collection**. Wherever EXISTING_USERID or EXISTING_POST_ID is specified, you need to provide a relevant id from your own database for these endpoints to work as intended, or you'll encounter some errors. 
 
