@@ -31,7 +31,6 @@ Start the server application (in the `api` directory) in dev mode:
 ; npm run dev
 ```
 
-### Using this back-end
 
 In order to figure out how to use this back-end, refer to the Mobile_Acebook_Backend.postman_collection.json file - all the details for the endpoints are contained there, so that you can structure your requests to this back-end from your mobile application. 
 
