@@ -5,10 +5,8 @@
 1. Have one team member fork this repository
 2. Rename the fork to `acebook-<team name>`
 3. Every team member clone the fork to their local machine
-4. Install dependencies for both the `frontend` and `api` applications:
+4. Install dependencies:
    ```
-   cd frontend
-   npm install
    cd ../api
    npm install
    ```
