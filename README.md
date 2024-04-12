@@ -1,4 +1,4 @@
-# Acebook MERN back-end mobile applications template
+# Acebook Express/Mongodv back-end mobile applications template
 
 ### Set up your project
 
