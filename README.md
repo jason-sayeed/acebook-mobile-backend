@@ -60,7 +60,7 @@ mean :)
 
 Consider this a hint for your SwiftUI mobile app!
 
-You can find it [here](./utils/Mobile_Acebook_Backend.postman_collection.json).
+You can find it [here](./api/utils/Mobile_Acebook_Backend.postman_collection.json).
 
 And to import it in Postman, simply click on "File" -> "Import" and select the
 above file, a new collection should be created and you're ready to go!
