@@ -101,7 +101,7 @@ stack Javascript apps.
 
 ## Architecture
 
-This application is comprised of a backend API built with Express
+This application is comprised of a backend API built with Express. You can find more details about this backend's architecture [here](https://github.com/makersacademy/acebook-mern-vite/blob/main/docs/backend_structure.md)
 
 ## Authentication
 
