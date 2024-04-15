@@ -1,18 +1,18 @@
 {
   "collection": {
     "info": {
-      "_postman_id": "07e0bfdb-083e-4ddc-b292-0cdc8a4e2dbf",
-      "name": "Acebook-mobile-backend-tests",
+      "_postman_id": "5a8d38b0-6406-4fec-8506-0a38461efcaa",
+      "name": "Acebook-mobile-backend-tests Copy",
       "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "updatedAt": "2024-04-04T13:42:37.000Z",
-      "uid": "25274463-07e0bfdb-083e-4ddc-b292-0cdc8a4e2dbf",
+      "updatedAt": "2024-04-15T14:02:51.000Z",
+      "uid": "25274463-5a8d38b0-6406-4fec-8506-0a38461efcaa",
       "createdAt": null,
       "lastUpdatedBy": null
     },
     "item": [
       {
         "name": "create a new post without an image",
-        "id": "4a5283dd-5213-4880-b932-c9a709009bd1",
+        "id": "eec04977-68a6-469b-b3e8-3898dff9c4a8",
         "protocolProfileBehavior": {
           "disabledSystemHeaders": {
 
@@ -88,11 +88,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-4a5283dd-5213-4880-b932-c9a709009bd1"
+        "uid": "25274463-eec04977-68a6-469b-b3e8-3898dff9c4a8"
       },
       {
         "name": "get all the posts",
-        "id": "00866864-6f66-406f-8a22-cf3e9595c327",
+        "id": "25de1ee0-ffe1-4502-bd89-03603c669d02",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -156,11 +156,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-00866864-6f66-406f-8a22-cf3e9595c327"
+        "uid": "25274463-25de1ee0-ffe1-4502-bd89-03603c669d02"
       },
       {
         "name": "like and unlike a post",
-        "id": "d69b1332-7b69-4445-8fbe-31a0fc4c642b",
+        "id": "c80d7634-c772-49f1-be8c-6e70463125de",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -233,11 +233,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-d69b1332-7b69-4445-8fbe-31a0fc4c642b"
+        "uid": "25274463-c80d7634-c772-49f1-be8c-6e70463125de"
       },
       {
         "name": "create new user with custom image",
-        "id": "7f055c0f-d1b8-4f3c-bb66-333ec9b9c5e4",
+        "id": "e656429e-26d4-4a78-a640-4b929c3a9002",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -265,11 +265,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-7f055c0f-d1b8-4f3c-bb66-333ec9b9c5e4"
+        "uid": "25274463-e656429e-26d4-4a78-a640-4b929c3a9002"
       },
       {
         "name": "update user's image",
-        "id": "1b30321b-cf46-41a2-8e70-bbc4505dbd04",
+        "id": "46552093-7a5f-4e17-aa72-5634d9e92ae2",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -342,11 +342,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-1b30321b-cf46-41a2-8e70-bbc4505dbd04"
+        "uid": "25274463-46552093-7a5f-4e17-aa72-5634d9e92ae2"
       },
       {
         "name": "create new user with default image",
-        "id": "89e48ccb-2290-4aa7-b23a-7b7f4e0aff9c",
+        "id": "badc9997-2567-4b43-ac36-c74a56b15ec0",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -374,11 +374,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-89e48ccb-2290-4aa7-b23a-7b7f4e0aff9c"
+        "uid": "25274463-badc9997-2567-4b43-ac36-c74a56b15ec0"
       },
       {
         "name": "create a new post with a custom image",
-        "id": "e99510bc-e62a-4e59-a76d-42beae4dd6ef",
+        "id": "1a41b2ce-38b5-4b28-93b9-32f8f30023ee",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -451,11 +451,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-e99510bc-e62a-4e59-a76d-42beae4dd6ef"
+        "uid": "25274463-1a41b2ce-38b5-4b28-93b9-32f8f30023ee"
       },
       {
         "name": "create new comment under a post",
-        "id": "aabb6b15-d3e1-4052-8cd9-5fc56943175c",
+        "id": "12288cac-5b40-4375-ad76-6d1f69b0037c",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -529,11 +529,11 @@
           }
         },
         "response": [],
-        "uid": "25274463-aabb6b15-d3e1-4052-8cd9-5fc56943175c"
+        "uid": "25274463-12288cac-5b40-4375-ad76-6d1f69b0037c"
       },
       {
         "name": "get posts for a single comment",
-        "id": "57304bfd-af2d-4d20-b146-9cd7755f1d64",
+        "id": "41173264-eab6-4ba0-bae1-a1e55609bd03",
         "protocolProfileBehavior": {
           "disableBodyPruning": true
         },
@@ -598,7 +598,20 @@
           }
         },
         "response": [],
-        "uid": "25274463-57304bfd-af2d-4d20-b146-9cd7755f1d64"
+        "uid": "25274463-41173264-eab6-4ba0-bae1-a1e55609bd03"
+      },
+      {
+        "name": "get logged in user details",
+        "id": "804ed174-6111-4d98-bc97-4a90f56134d3",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "GET",
+          "header": []
+        },
+        "response": [],
+        "uid": "25274463-804ed174-6111-4d98-bc97-4a90f56134d3"
       }
     ]
   }

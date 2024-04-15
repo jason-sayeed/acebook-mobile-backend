@@ -42,9 +42,23 @@ const updateProfilePicture = async (req, res) => {
   }
 };
 
+const getUserDetails = async (req, res) => { 
+  try {
+    const user = await User.find({ _id: req.user_id });
+
+    const token = generateToken(req.user_id);
+    res.status(201).json({ userData: user, token: token });
+  }
+  catch {
+    // console.log(error);
+    res.status(400).json({ message: "Something went wrong" });
+  }
+}
+
 const UsersController = {
   create: create,
   updateProfilePicture: updateProfilePicture,
+  getUserDetails, getUserDetails
 };
 
 module.exports = UsersController;
