@@ -77,7 +77,7 @@ above file, a new collection should be created and you're ready to go!
 
 We have also included all the relevant instructions that were part of the
 [original template for the MERN Acebook
-project](https://github.com/makersacademy/acebook-mern-template) just below as
+project](https://github.com/makersacademy/acebook-mern-vite) just below as
 well for reference in case you need them.
 
 ## Technologies
