@@ -92,8 +92,6 @@ tables. The application interacts with MongoDB using a tool called Mongoose.
 structure of this application will feel quite different to what you're used to
 but the principles are the same.
 
-### **R** is for React
-
 ### **N** is for Node
 Javascript was originally designed to run exclusively in browsers, such as
 Chrome. [Node](https://nodejs.org/en/) is a tool that allows you to run
@@ -104,7 +102,6 @@ stack Javascript apps.
 ## Architecture
 
 This application is comprised of a backend API built with Express
-
 
 ## Authentication
 
