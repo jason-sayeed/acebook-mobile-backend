@@ -80,13 +80,6 @@ We have also included all the relevant instructions that were part of the
 project](https://github.com/makersacademy/acebook-mern-template) just below as
 well for reference in case you need them.
 
-## Videos
-
-* [An overview of the app](https://youtu.be/meTABGgrO2c)
-* [The backend (api)](https://youtu.be/mFczOzWW3vo)
-* [Postman](https://youtu.be/VO_kinuJngA)
-
-
 ## Technologies
 
 ### **M** is for MongoDB
