@@ -16,6 +16,7 @@ const getAllPosts = async (req, res) => {
         message: post.message,
         createdAt: post.createdAt,
         imgUrl: post.imgUrl,
+        likes: post.likes,
         createdBy: {
           _id: post.createdBy._id,
           username: post.createdBy.username,
