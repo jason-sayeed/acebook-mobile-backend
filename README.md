@@ -41,7 +41,7 @@ Here's a quick overview of the API endpoints you'll be interacting with:
 | Endpoint                    | Method | Payload Model | Description                          | Response Values                          |
 |-----------------------------|--------|---------------|--------------------------------------|------------------------------------------|
 | http://localhost:3000/users  | POST   | User          | Sign up a new user                   | 201 OK: `{ message: 'OK' }`              |
-| http://localhost:3000/tokens | POST   | email, password | Log in an existing user             | 201 OK: `{ token: String, message: 'OK' }`|
+| http://localhost:3000/tokens | POST   | email, password | Log in an existing user            | 201 OK: `{ token: String, message: 'OK' }`|
 | http://localhost:3000/posts  | POST   | NewPost       | Create a new post                    | 201 OK: `{ message: 'OK', token: String }`|
 | http://localhost:3000/posts  | GET    | N/A           | Fetch all posts                      | 200 OK: `{ posts: [Post], token: String }` |
 
@@ -151,20 +151,6 @@ change the value of that environment variable to anything you like.
 
 ## Quickstart
 
-### Install Node.js
-
-1. Install Node Version Manager (NVM)
-   ```
-   brew install nvm
-   ```
-   Then follow the instructions to update your `~/.bash_profile`.
-2. Open a new terminal
-3. Install the latest version of [Node.js](https://nodejs.org/en/), currently `18.1.0`.
-   ```
-   nvm install 18
-   ```
-
-
 ### Set up your project
 
 1. Have one team member fork this repository
@@ -175,17 +161,17 @@ change the value of that environment variable to anything you like.
    cd ../api
    npm install
    ```
-5. Install MongoDB (if you haven't already)
+5. Install MongoDB (ONLY IF YOU HAVEN'T ALREADY - skips this step if so, to avoid running into issues)
    ```
    brew tap mongodb/brew
-   brew install mongodb-community@5.0
+   brew install mongodb-community@6.0
    ```
    *Note:* If you see a message that says `If you need to have
    mongodb-community@5.0 first in your PATH, run:`, follow the instruction.
    Restart your terminal after this.
 6. Start MongoDB
    ```
-   brew services start mongodb-community@5.0
+   brew services start mongodb-community@6.0
    ```
    
 ### Setting up environment variables.
